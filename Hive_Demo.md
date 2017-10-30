@@ -37,5 +37,6 @@ LOAD DATA LOCAL INPATH '/home/aadsyanw/demo/students_tb/students/students.txt' O
 ### Step 5. query this table to validate it
 ```sql
 SELECT * FROM students;
+DESC FORMATTED students;
 ```
 
