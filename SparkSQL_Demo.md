@@ -49,6 +49,8 @@ scala> val df = sqlContext.sql("SELECT * from kris_db.sample_07_spark")
 7. Show all rows with salary greater than 150,000:
 ```sh
 scala> df.filter(df("salary") > 150000).show()
+
+scala> df.filter(df("salary") > 150000).show(false)
 ```
 
 The output should be:
@@ -68,4 +70,29 @@ The output should be:
 |29-1069|Physicians and su...|   237400|155150|
 +-------+--------------------+---------+------+
 ```
+8. Schema
+```sh
+scala> df.schema
+```
+
+The output should be:
+```sh
+res9: org.apache.spark.sql.types.StructType = StructType(StructField(code,StringType,true), StructField(description,StringType,true), StructField(total_emp,IntegerType,true), StructField(salary,IntegerType,true))
+```
+Or print schema
+```sh
+scala> df.printSchema
+
+root
+|-- code: string (nullable = true)
+|-- description: string (nullable = true)
+|-- total_emp: integer (nullable = true)
+|-- salary: integer (nullable = true)
+```
+
+9. count
+```sh
+scala> df.count
+```
+
 
